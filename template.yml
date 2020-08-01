@@ -6,6 +6,7 @@ Resources:
   EC2Instance:
     Type: AWS::EC2::Instance
     Properties:
+
       InstanceType: m1.large
       ImageId: 'ami-09d95fab7fff3776c'
       KeyName: my-key
