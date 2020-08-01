@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Metadata:
+  License: Apache-2.0
+Description: 'AWS CloudFormation Sample Template EC2Instance:'
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: 'ami-09d95fab7fff3776c'
+      KeyName: my-key
+      SecurityGroups: 
+        - !Ref MySecurityGroup
+  
+  MySecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: someSG
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '443'
+          ToPort: '443'
+          CidrIp: 0.0.0.0/0
+Outputs:
+  OutOfMyDevSecurityGroup:
+    Description: exporting security group id
+    Value: !GetAtt MySecurityGroup.GroupId
+
+
+    
+
+
+     
