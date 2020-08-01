@@ -6,7 +6,8 @@ Resources:
   EC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t3.micro
+
+      InstanceType: m1.large
       ImageId: 'ami-09d95fab7fff3776c'
       KeyName: my-key
       SecurityGroups: 
@@ -21,13 +22,19 @@ Resources:
           FromPort: '443'
           ToPort: '443'
           CidrIp: 0.0.0.0/0
+        -
+          CidrIp: 0.0.0.0/0
+          IpProtocol: tcp
+          ToPort: "22"
+          FromPort: "22"
+
 Outputs:
   OutOfMyDevSecurityGroup:
     Description: exporting security group id
     Value: !GetAtt MySecurityGroup.GroupId
 
 
-    
 
 
-     
+
+  
