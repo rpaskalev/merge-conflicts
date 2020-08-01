@@ -7,6 +7,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro.second.edition
+
       ImageId: 'ami-09d95fab7fff3776c'
       KeyName: my-key
       SecurityGroups: 
